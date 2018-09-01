@@ -1,0 +1,1 @@
+java -Xms600m -Xmx1024m  Login

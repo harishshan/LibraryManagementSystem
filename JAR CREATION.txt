@@ -1,0 +1,8 @@
+jar -cvmf Manifest.txt Library.jar *.class
+
+Main-Class: Login     \n
+
+
+Manifest.txt 
+
+JAVA_OPTS="-Xms128m -Xmx256m"

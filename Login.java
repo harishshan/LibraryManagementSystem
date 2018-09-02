@@ -239,7 +239,7 @@ class Home extends JFrame implements ActionListener
 {
 	JPanel jp;
 	JButton jb1,jb2,jb3,jb4,jb5,jb6,jb7,jb8,jb9,jb10;
-	JLabel tl,mitl,mbal,miti,dd;
+	JLabel tl,mitl,csel,miti,dd;
 	Dimension d;
 	Background bg;
 	Image img;
@@ -265,16 +265,18 @@ class Home extends JFrame implements ActionListener
 		add(jp);
 		setContentPane(bg.wrapInBackgroundImage(jp,new ImageIcon(Home.class.getResource("bg.jpg"))));
 		
-		imgicon0=new ImageIcon(Home.class.getResource("mit.png"));
+		imgicon0=new ImageIcon(Home.class.getResource("mit.jpg"));
 		
 					
 		tl=new JLabel("HH : MM : SS");
 		mitl=new JLabel("JEPPIAAR MAAMALLAN INSTITUTE OF TECHNOLOGY, SRIPERUMPUDUR");
-		mbal=new JLabel("DEPARTMENT OF MANAGEMENT");
+		csel=new JLabel("DEPARTMENT OF COMPUTER SCIENCE AND ENGINEERING");
 		miti=new JLabel();
 		dd=new JLabel("Designed and Developed by");
-		miti.setIcon(imgicon0);
+	
 				
+		miti.setIcon(imgicon0);
+					
 		jb1= new JButton("STUDENT DETAILS");
 		jb2= new JButton("BOOK DETAILS");
 		jb3= new JButton("BOOK ISSUE");
@@ -356,7 +358,7 @@ class Home extends JFrame implements ActionListener
 		//---------------------------------------------------------------------------------------------------
 		Slide slide=new Slide();
 		DesDev desdev=new DesDev();		
-		
+			
 		//---------------------------------------------------------------------------------------------------		
 		class Clock extends TimerTask
 		{
@@ -391,7 +393,7 @@ class Home extends JFrame implements ActionListener
 		jp.add(jb9);
 		jp.add(jb10);
 		jp.add(mitl);
-		jp.add(mbal);
+		jp.add(csel);
 		jp.add(miti);
 		jp.add(tl);
 		jp.add(dd);
@@ -404,7 +406,7 @@ class Home extends JFrame implements ActionListener
 
 		tl.setFont(ft1);		
 		mitl.setFont(ft2);
-		mbal.setFont(ft2);
+		csel.setFont(ft2);
 		dd.setFont(ft3);
 			
 				
@@ -460,7 +462,7 @@ class Home extends JFrame implements ActionListener
 		dd.setBounds(d.width-240,d.height-120,200,20);
 		tl.setBounds(10,d.height-100,110,20);		
 		mitl.setBounds(c,160,740,30);
-		mbal.setBounds(c+70,190,600,30);
+		csel.setBounds(c+70,190,600,30);
 		miti.setBounds(e,220,120,120);
 		
 			
@@ -920,6 +922,8 @@ class Book extends JFrame implements ActionListener
 			find.setContentAreaFilled(false);
 			find.setBorderPainted(false); 
 			
+		
+
 			jp.add(idl);
 			jp.add(nol);
 			jp.add(authorl);
@@ -1019,10 +1023,10 @@ class Book extends JFrame implements ActionListener
 				else
 				{
 					String YES=new String("YES");
-					String mba=new String("MBA");
+					String cse=new String("CSE");
 					String mit=new String("MIT");
 					st=con.createStatement();
-					st.executeUpdate("INSERT INTO book VALUES('"+id.getText()+"','"+no.getText()+"','"+author.getText()+"','"+pub.getText()+"','"+edi.getText()+"','"+pri.getText()+"','"+YES+"','"+mba+"','"+mit+"')");
+					st.executeUpdate("INSERT INTO book VALUES('"+id.getText()+"','"+no.getText()+"','"+author.getText()+"','"+pub.getText()+"','"+edi.getText()+"','"+pri.getText()+"','"+YES+"','"+cse+"','"+mit+"')");
 					JOptionPane.showMessageDialog(this,"Book Details Added Successfully", "Added Successfully", JOptionPane.INFORMATION_MESSAGE,lionimg);
 				}			
 			}
@@ -1133,7 +1137,7 @@ class Book extends JFrame implements ActionListener
 					else
 					{
 						st=con.createStatement();
-						st.executeUpdate("insert into book values('"+id.getText()+"','"+k+"','"+author.getText()+"','"+pub.getText()+"','"+edi.getText()+"','"+pri.getText()+"','YES','MBA','MIT')");
+						st.executeUpdate("insert into book values('"+id.getText()+"','"+k+"','"+author.getText()+"','"+pub.getText()+"','"+edi.getText()+"','"+pri.getText()+"','YES','CSE','MIT')");
 					}
 				}
 			}
@@ -3039,7 +3043,7 @@ class Faculty extends JFrame implements ActionListener,FocusListener
 			setVisible(true);			
 			setSize(d.width,d.height);
 			setIconImage(img);			
-			setTitle("Faculty Issuse");
+			setTitle("Staff login");
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			add(jp);
 			setContentPane(jp);
@@ -3066,13 +3070,13 @@ class Faculty extends JFrame implements ActionListener,FocusListener
 	
 			dept=new JComboBox();
 			dept.setEditable(true);
-			dept.addItem("MBA");
-			dept.addItem("MCA");
 			dept.addItem("CSE");
 			dept.addItem("IT");
 			dept.addItem("CIVIL");
 			dept.addItem("MECH");
 			dept.addItem("ECE");
+			dept.addItem("MBA");
+			dept.addItem("MCA");
 			dept.addItem("EEE");
 			
 			b1=new JCheckBox();
@@ -4275,11 +4279,11 @@ class Lend extends JFrame implements ActionListener
 	
 			dept=new JComboBox();
 			dept.setEditable(true);
-			dept.addItem("CSE");
 			dept.addItem("IT");
 			dept.addItem("CIVIL");
 			dept.addItem("MECH");
 			dept.addItem("ECE");
+			dept.addItem("MBA");
 			dept.addItem("MCA");
 			dept.addItem("EEE");
 			dept.addItem("MAINLIB");
@@ -4675,12 +4679,12 @@ class Borrow extends JFrame implements ActionListener
 			
 			dept=new JComboBox();
 			dept.setEditable(true);
-			dept.addItem("CSE");
 			dept.addItem("IT");
 			dept.addItem("CIVIL");
 			dept.addItem("MECH");
 			dept.addItem("ECE");
 			dept.addItem("MBA");
+			dept.addItem("MCA");
 			dept.addItem("EEE");
 			dept.addItem("MAINLIB");
 			
@@ -6330,7 +6334,7 @@ class AboutUs extends JFrame implements ActionListener
 		cjug.setToolTipText("CJUG");		
 		dlms=new JLabel("Product Name:Department Library Management System       Version:1.0");
 
-		ab1=new JLabel("This software has been formed by the guidance of our Sir Mr.Yuvaraj.G, Soft EON,");
+		ab1=new JLabel("This software has been formed by the guidance of our Sir Mr.Yuvaraj.G");
 		ab2=new JLabel("Chennai. and our friend Mr.Suresh,MCA . We are very thankful to them for their ");
 		ab3=new JLabel("motivation and help in developing this Application. ");
 		ab4=new JLabel("And of course we are very happy to implement this Application for the first time ");
@@ -6511,7 +6515,7 @@ class AboutUs extends JFrame implements ActionListener
 			Desktop desktop = Desktop.getDesktop();                                        
 			try 
 			{                                                
-				desktop.browse(new java.net.URI("http://harishcsemit.blogspot.com"));      
+				desktop.browse(new java.net.URI("http://www.cityjava.blogspot.com"));      
 			}
 			catch(Exception e)
 			{
